@@ -2,6 +2,7 @@ package com.example.simplenewsapp.ui.fragments
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -33,11 +34,12 @@ class NewsFragment : Fragment(R.layout.fragment_news) {
                 is Resource.Success -> {
                     response.data?.let { news ->
                         submitNews(news.articles)
+                        news_fragment_loading_bar.isVisible = false
                     }
                 }
                 is Resource.Loading -> {
-                    //TODO add loading bar in layout
                     Timber.i("Loading articles...")
+                    news_fragment_loading_bar.isVisible = true
                 }
                 is Resource.Error -> {
                     response.message?.let { errorMessage ->
