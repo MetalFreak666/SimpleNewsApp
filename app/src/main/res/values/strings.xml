@@ -13,4 +13,11 @@
     <string name="recycler_item_article_description">Description</string>
     <string name="recycler_item_content_description">Article Image</string>
 
+    <!-- Article detail fragment -->
+    <string name="article_detail_source">Source</string>
+    <string name="article_detail_published">Published data</string>
+    <string name="article_detail_title">Title</string>
+    <string name="article_detail_description">Description</string>
+    <string name="article_detail_content_description">Article Image</string>
+
 </resources>
