@@ -27,4 +27,8 @@
             android:name="article"
             app:argType="com.example.simplenewsapp.data.models.Article" />
     </fragment>
+    <fragment
+        android:id="@+id/savedNewsFragment"
+        android:name="com.example.simplenewsapp.ui.fragments.SavedNewsFragment"
+        android:label="SavedNewsFragment" />
 </navigation>
