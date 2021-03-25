@@ -63,5 +63,8 @@ class NewsPageAdapter() : RecyclerView.Adapter<NewsPageAdapter.NewsPageViewHolde
     //Submitting articles from NewsFragment
     fun submitArticles(articles: List<Article>) {
         articlesToDisplay = articles
+
+        //Notifying that data has been changed
+        notifyDataSetChanged()
     }
 }
