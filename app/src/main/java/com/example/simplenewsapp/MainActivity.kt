@@ -12,20 +12,14 @@ import kotlinx.android.synthetic.main.activity_main.*
 import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
-    lateinit var newsViewModel: NewsViewModel
+    //lateinit var newsViewModel: NewsViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //Setup of TimberLogger
-        Timber.plant(Timber.DebugTree())
 
-        //Init of repository and view model
-        val repository = NewsRepository()
-        val viewModelProvider = NewsViewModelProvider(repository)
-        newsViewModel = ViewModelProvider(this, viewModelProvider).get(NewsViewModel::class.java)
-
+        /*
         newsViewModel.news.observe(this, {response ->
             when(response) {
                 is Resource.Success -> {
@@ -43,6 +37,6 @@ class MainActivity : AppCompatActivity() {
                     Timber.i("Loading articles...")
                 }
             }
-        })
+        })*/
     }
 }
