@@ -20,6 +20,7 @@ class SearchNewsAdapter() : RecyclerView.Adapter<SearchNewsAdapter.SearchNewsVie
 
     //Articles to display in RecyclerView
     private var searchedArticles: List<Article> = ArrayList()
+    private var onItemClickListener: ((Article) -> Unit)? = null
 
     class SearchNewsViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         private val articlePublished: TextView = view.article_published_date
@@ -28,7 +29,7 @@ class SearchNewsAdapter() : RecyclerView.Adapter<SearchNewsAdapter.SearchNewsVie
         private val articleDescription: TextView = view.article_description
         private val articleImage: ImageView = view.article_image
 
-        fun bind(article: Article) {
+        fun bind(article: Article, onClick: (Article) -> Unit) {
 
             //Using Picasso to loading images from provided ImageURL for given article
             try {
@@ -42,6 +43,11 @@ class SearchNewsAdapter() : RecyclerView.Adapter<SearchNewsAdapter.SearchNewsVie
             articleSource.text = article.source.name
             articleTitle.text = article.title
             articleDescription.text = article.description
+
+            //OnClickListener when selecting an article from RecyclerView
+            view.setOnClickListener {
+                onClick(article)
+            }
         }
     }
 
@@ -55,7 +61,7 @@ class SearchNewsAdapter() : RecyclerView.Adapter<SearchNewsAdapter.SearchNewsVie
 
     override fun onBindViewHolder(holder: SearchNewsViewHolder, position: Int) {
         val article = searchedArticles[position]
-        holder.bind(article)
+        onItemClickListener?.let { holder.bind(article, it) }
     }
 
     override fun getItemCount(): Int {
@@ -68,5 +74,10 @@ class SearchNewsAdapter() : RecyclerView.Adapter<SearchNewsAdapter.SearchNewsVie
 
         //Notifying that data has been changed
         notifyDataSetChanged()
+    }
+
+    //Called when user selecting an article
+    fun setOnClickListener(listener: (Article) -> Unit) {
+        onItemClickListener = listener
     }
 }

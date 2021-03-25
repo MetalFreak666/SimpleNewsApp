@@ -6,6 +6,7 @@ import android.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.simplenewsapp.R
 import com.example.simplenewsapp.data.models.Article
@@ -36,6 +37,7 @@ class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
         //Setup of RecyclerView for articles
         setupRecyclerView()
 
+        //Setting up Coroutine for delay of searching query
         var job: Job? = null
         search_news_search_view.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -46,7 +48,7 @@ class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
                 job?.cancel()
                 //Setting up delay when text is changed in SearchView
                 job = MainScope().launch {
-                    delay(500L)
+                    delay(1000L)
                     viewModel.searchNews(newText.toString())
                 }
                 return false
@@ -70,6 +72,15 @@ class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
                 }
             }
         })
+
+        //This listener is used to navigate to ArticleDetailFragment with bundle
+        //which includes selected article as serializable
+        searchNewsAdapter.setOnClickListener { article ->
+            val bundle = Bundle().apply { putSerializable("article", article) }
+
+            //Using navigation controller to navigate and passing bundle to new fragment
+            findNavController().navigate(R.id.action_searchNewsFragment_to_articleDetailFragment, bundle)
+        }
     }
 
     //Function used to setup of RecyclerView
