@@ -3,16 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:padding="10dp">
 
     <TextView
         android:id="@+id/article_published_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/recycler_item_published_date"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        android:layout_marginTop="10dp"
+        style="@style/ArticlePublishedDateStyleText"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/article_source"/>
@@ -22,9 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/recycler_item_article_source"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textColor="@color/source_color_orange"
+        style="@style/ArticleSourceStyleText"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -33,14 +30,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/recycler_item_article_title"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:maxLines="3"
-        android:layout_marginStart="3dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="3dp"
+        style="@style/ArticleTitleStyleText"
         app:layout_constraintTop_toBottomOf="@id/article_published_date"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/article_image"/>
@@ -50,10 +40,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/recycler_item_article_description"
-        android:textSize="12sp"
-        android:textStyle="italic"
-        android:maxLines="4"
-        android:layout_marginTop="10dp"
+        style="@style/ArticleDescriptionStyleText"
         app:layout_constraintTop_toBottomOf="@id/article_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/article_image"/>
