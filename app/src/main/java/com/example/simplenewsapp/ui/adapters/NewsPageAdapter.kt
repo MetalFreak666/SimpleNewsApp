@@ -20,6 +20,7 @@ class NewsPageAdapter() : RecyclerView.Adapter<NewsPageAdapter.NewsPageViewHolde
 
     //Articles to display in RecyclerView
     private var articlesToDisplay: List<Article> = ArrayList()
+    private var onItemClickListener: ((Article) -> Unit)? = null
 
     class NewsPageViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         private val articlePublished: TextView = view.article_published_date
@@ -28,7 +29,7 @@ class NewsPageAdapter() : RecyclerView.Adapter<NewsPageAdapter.NewsPageViewHolde
         private val articleDescription: TextView = view.article_description
         private val articleImage: ImageView = view.article_image
 
-        fun bind(article: Article) {
+        fun bind(article: Article, onClick: (Article) -> Unit) {
             //Using Picasso to loading images from provided ImageURL for given article
             try {
                 Picasso.with(view.context).load(article.urlToImage).into(articleImage)
@@ -41,6 +42,12 @@ class NewsPageAdapter() : RecyclerView.Adapter<NewsPageAdapter.NewsPageViewHolde
             articleSource.text = article.source.name
             articleTitle.text = article.title
             articleDescription.text = article.description
+
+            //OnClickListener when selecting an article from RecyclerView
+            view.setOnClickListener {
+                onClick(article)
+            }
+
         }
     }
 
@@ -53,7 +60,7 @@ class NewsPageAdapter() : RecyclerView.Adapter<NewsPageAdapter.NewsPageViewHolde
 
     override fun onBindViewHolder(holder: NewsPageViewHolder, position: Int) {
         val article = articlesToDisplay[position]
-        holder.bind(article)
+        onItemClickListener?.let { holder.bind(article, it) }
     }
 
     override fun getItemCount(): Int {
@@ -66,5 +73,10 @@ class NewsPageAdapter() : RecyclerView.Adapter<NewsPageAdapter.NewsPageViewHolde
 
         //Notifying that data has been changed
         notifyDataSetChanged()
+    }
+
+    //Called when user selecting an article
+    fun setOnClickListener(listener: (Article) -> Unit) {
+        onItemClickListener = listener
     }
 }

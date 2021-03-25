@@ -5,6 +5,7 @@ import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.simplenewsapp.R
 import com.example.simplenewsapp.data.models.Article
@@ -48,6 +49,16 @@ class NewsFragment : Fragment(R.layout.fragment_news) {
                 }
             }
         })
+
+        //This listener is used to navigate to ArticleDetailFragment with bundle
+        //which includes selected article as serializable
+        newsPageAdapter.setOnClickListener {
+            val bundle = Bundle().apply {
+                putSerializable("article", it)
+            }
+            //Using navigation controller to navigate and passing bundle to new fragment
+            findNavController().navigate(R.id.action_newsFragment_to_articleDetailFragment, bundle)
+        }
     }
 
     //Function used to setup of RecyclerView

@@ -1,5 +1,7 @@
 package com.example.simplenewsapp.data.models
 
+import java.io.Serializable
+
 /**
  * Data model class for Article entity
  */
@@ -12,5 +14,5 @@ data class Article (
     val urlToImage: String,
     val publishedAt: String,
     val content: String
-)
+): Serializable
 
