@@ -30,6 +30,7 @@ class NewsPageAdapter() : RecyclerView.Adapter<NewsPageAdapter.NewsPageViewHolde
         private val articleImage: ImageView = view.article_image
 
         fun bind(article: Article, onClick: (Article) -> Unit) {
+
             //Using Picasso to loading images from provided ImageURL for given article
             try {
                 Picasso.with(view.context).load(article.urlToImage).into(articleImage)
@@ -47,7 +48,6 @@ class NewsPageAdapter() : RecyclerView.Adapter<NewsPageAdapter.NewsPageViewHolde
             view.setOnClickListener {
                 onClick(article)
             }
-
         }
     }
 

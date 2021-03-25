@@ -16,8 +16,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/article_detail_source"
+        style="@style/ArticleDetailSourceText"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/article_detail_published_date"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
@@ -25,6 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/article_detail_published"
+        style="@style/ArticlePublishedDateStyleText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -42,6 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/article_detail_title"
+        style="@style/ArticleDetailTitleText"
         app:layout_constraintTop_toBottomOf="@id/article_detail_image_view"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -51,6 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/article_detail_description"
+        style="@style/ArticleDetailDescriptionText"
         app:layout_constraintTop_toBottomOf="@id/article_detail_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -61,6 +64,7 @@
         android:layout_width="wrap_content"
         android:src="@drawable/fab_web"
         app:fabSize="normal"
+        app:backgroundTint="@color/fab_web_blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
@@ -70,6 +74,7 @@
         android:layout_width="wrap_content"
         android:src="@drawable/fab_add_to_favorite"
         app:fabSize="normal"
+        app:backgroundTint="@color/fab_favorite_red"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
