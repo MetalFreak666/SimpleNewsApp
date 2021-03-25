@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.simplenewsapp.R
+import com.example.simplenewsapp.database.ArticleDB
 import com.example.simplenewsapp.repository.NewsRepository
 import com.example.simplenewsapp.viewmodels.NewsViewModel
 import com.example.simplenewsapp.viewmodels.NewsViewModelProvider
@@ -28,7 +29,7 @@ class NewsActivity : AppCompatActivity() {
         Timber.plant(Timber.DebugTree())
 
         //Init of repository and view model
-        val repository = NewsRepository()
+        val repository = NewsRepository(ArticleDB(this))
         val viewModelProvider = NewsViewModelProvider(repository)
         newsViewModel = ViewModelProvider(this, viewModelProvider).get(NewsViewModel::class.java)
     }

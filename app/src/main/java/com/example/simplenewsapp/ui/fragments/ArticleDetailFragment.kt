@@ -48,6 +48,7 @@ class ArticleDetailFragment : Fragment(R.layout.fragment_article_detail) {
         title.text = article.title
         description.text = article.description
 
+        //FAB used to open URL in WebView
         fab_web.setOnClickListener {
             web.apply {
                 webViewClient = WebViewClient()
@@ -61,6 +62,11 @@ class ArticleDetailFragment : Fragment(R.layout.fragment_article_detail) {
             description.isVisible = false
             image.isVisible = false
             fab_web.isVisible = false
+        }
+
+        //FAB used to save article
+        fab_save_article.setOnClickListener{
+            viewModel.saveArticle(article)
         }
     }
 }
