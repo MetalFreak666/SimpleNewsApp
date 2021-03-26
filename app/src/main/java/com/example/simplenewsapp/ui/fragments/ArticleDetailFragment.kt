@@ -28,6 +28,7 @@ class ArticleDetailFragment : Fragment(R.layout.fragment_article_detail) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = (activity as NewsActivity).newsViewModel
         val article = args.article
+        val savedArticle = args.savedArticle
 
         val source: TextView = view.findViewById(R.id.article_detail_source)
         val publishedDate: TextView = view.findViewById(R.id.article_detail_published_date)
@@ -64,9 +65,14 @@ class ArticleDetailFragment : Fragment(R.layout.fragment_article_detail) {
             fab_web.isVisible = false
         }
 
-        //FAB used to save article
-        fab_save_article.setOnClickListener{
-            viewModel.saveArticle(article)
+        //If saved article
+        if (savedArticle) {
+            fab_save_article.isVisible = false
+        } else {
+            //FAB used to save article
+            fab_save_article.setOnClickListener{
+                viewModel.saveArticle(article)
+            }
         }
     }
 }

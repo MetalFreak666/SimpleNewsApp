@@ -26,9 +26,17 @@
         <argument
             android:name="article"
             app:argType="com.example.simplenewsapp.data.models.Article" />
+        <argument
+            android:name="savedArticle"
+            app:argType="boolean"
+            android:defaultValue="false" />
     </fragment>
     <fragment
         android:id="@+id/savedNewsFragment"
         android:name="com.example.simplenewsapp.ui.fragments.SavedNewsFragment"
-        android:label="SavedNewsFragment" />
+        android:label="SavedNewsFragment" >
+        <action
+            android:id="@+id/action_savedNewsFragment_to_articleDetailFragment"
+            app:destination="@id/articleDetailFragment" />
+    </fragment>
 </navigation>
