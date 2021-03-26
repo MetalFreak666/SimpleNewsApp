@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/newsFragment"
+       android:title="@string/nav_menu_news_title"
+       android:icon="@drawable/news_nav_icon"/>
+
+    <item android:id="@+id/searchNewsFragment"
+        android:title="@string/nav_menu_search_news_title"
+        android:icon="@drawable/search_nav_icon"/>
+
+    <item android:id="@+id/savedNewsFragment"
+        android:title="@string/nav_menu_saved_news_title"
+        android:icon="@drawable/fab_add_to_favorite" />
+
+    <item android:id="@+id/optionsFragment"
+        android:title="@string/nav_menu_options"
+        android:icon="@drawable/options_nav_icon"/>
+
+</menu>

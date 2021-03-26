@@ -1,3 +1,32 @@
 <resources>
+    <!-- App Name -->
     <string name="app_name">SimpleNewsApp</string>
+
+    <!-- Navigation menu -->
+    <string name="nav_menu_news_title">News</string>
+    <string name="nav_menu_saved_news_title">Saved News</string>
+    <string name="nav_menu_search_news_title">Search News</string>
+    <string name="nav_menu_options">Options</string>
+
+    <!-- Recycler item news -->
+    <string name="recycler_item_published_date">Published data</string>
+    <string name="recycler_item_article_source">Source</string>
+    <string name="recycler_item_article_title">Title</string>
+    <string name="recycler_item_article_description">Description</string>
+    <string name="recycler_item_content_description">Article Image</string>
+
+    <!-- Article detail fragment -->
+    <string name="article_detail_source">Source</string>
+    <string name="article_detail_published">Published data</string>
+    <string name="article_detail_title">Title</string>
+    <string name="article_detail_description">Description</string>
+    <string name="article_detail_content_description">Article Image</string>
+
+    <!-- Options fragment -->
+    <string name="options_select_source_text">Select news source from supported countries</string>
+
+    <!-- Notifications -->
+    <string name="article_saved_successfully">Article saved successfully</string>
+    <string name="news_source_country">Articles news country source has been successfully changed</string>
+
 </resources>
