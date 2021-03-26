@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.simplenewsapp.R
 import com.example.simplenewsapp.ui.NewsActivity
@@ -65,9 +66,16 @@ class ArticleDetailFragment : Fragment(R.layout.fragment_article_detail) {
             fab_web.isVisible = false
         }
 
-        //If saved article
+        //If saved article display delete FAB
         if (savedArticle) {
             fab_save_article.isVisible = false
+            fab_delete_article.isVisible = true
+
+            //Deleting article from DB
+            fab_delete_article.setOnClickListener {
+                viewModel.deleteArticle(article)
+                findNavController().navigate(R.id.action_articleDetailFragment_to_savedNewsFragment2)
+            }
         } else {
             //FAB used to save article
             fab_save_article.setOnClickListener{

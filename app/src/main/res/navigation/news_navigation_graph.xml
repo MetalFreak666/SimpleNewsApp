@@ -30,6 +30,9 @@
             android:name="savedArticle"
             app:argType="boolean"
             android:defaultValue="false" />
+        <action
+            android:id="@+id/action_articleDetailFragment_to_savedNewsFragment2"
+            app:destination="@id/savedNewsFragment" />
     </fragment>
     <fragment
         android:id="@+id/savedNewsFragment"

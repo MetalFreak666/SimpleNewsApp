@@ -18,6 +18,7 @@ class SavedNewsAdapter() : RecyclerView.Adapter<SavedNewsAdapter.SavedNewsViewHo
 
     //Saved articles provided by SavedNewsFragment
     private var savedArticles: List<Article> = ArrayList()
+    private var onItemClickListener: ((Article) -> Unit)? = null
 
     inner class SavedNewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
@@ -42,6 +43,11 @@ class SavedNewsAdapter() : RecyclerView.Adapter<SavedNewsAdapter.SavedNewsViewHo
             article_source.text = article.source.name
             article_title.text = article.title
             article_description.text = article.description
+
+            //Listener when current article is selected by user
+            setOnClickListener {
+                onItemClickListener?.let { it(article) }
+            }
         }
     }
 
@@ -53,5 +59,10 @@ class SavedNewsAdapter() : RecyclerView.Adapter<SavedNewsAdapter.SavedNewsViewHo
     fun submitSavedArticles(articles: List<Article>) {
         savedArticles = articles
         notifyDataSetChanged()
+    }
+
+    //Called when user selecting an article
+    fun setOnClickListener(listener: (Article) -> Unit) {
+        onItemClickListener = listener
     }
 }

@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.simplenewsapp.R
 import com.example.simplenewsapp.data.models.Article
@@ -32,6 +33,17 @@ class SavedNewsFragment : Fragment(R.layout.fragment_saved_news) {
         viewModel.getSavedArticles().observe(viewLifecycleOwner, Observer { savedArticles ->
             savedNewsAdapter.submitSavedArticles(savedArticles)
         })
+
+        //When user selecting an article from RecyclerView
+        savedNewsAdapter.setOnClickListener {
+            val bundle = Bundle().apply {
+                putSerializable("article", it)
+                putSerializable("savedArticle", true)
+            }
+
+            //Using navigation controller to parsing article data to the ArticleDetailFragment
+            findNavController().navigate(R.id.action_savedNewsFragment_to_articleDetailFragment, bundle)
+        }
     }
 
     //Function used to setup of adapter
