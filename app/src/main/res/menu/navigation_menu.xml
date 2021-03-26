@@ -12,4 +12,9 @@
     <item android:id="@+id/savedNewsFragment"
         android:title="@string/nav_menu_saved_news_title"
         android:icon="@drawable/fab_add_to_favorite" />
+
+    <item android:id="@+id/optionsFragment"
+        android:title="@string/nav_menu_options"
+        android:icon="@drawable/options_nav_icon"/>
+
 </menu>

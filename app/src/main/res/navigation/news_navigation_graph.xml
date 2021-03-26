@@ -42,4 +42,8 @@
             android:id="@+id/action_savedNewsFragment_to_articleDetailFragment"
             app:destination="@id/articleDetailFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/optionsFragment"
+        android:name="com.example.simplenewsapp.ui.fragments.OptionsFragment"
+        android:label="OptionsFragment" />
 </navigation>
