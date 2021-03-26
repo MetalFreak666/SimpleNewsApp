@@ -15,8 +15,10 @@ import retrofit2.Response
  * https://developer.android.com/jetpack/guide
  */
 class NewsViewModel(private val repository: NewsRepository) : ViewModel() {
+    //MutableLiveData
     val news: MutableLiveData<Resource<News>> = MutableLiveData()
     val searchNews: MutableLiveData<Resource<News>> = MutableLiveData()
+
     var country = "us"
     var pages = 1
 
@@ -38,6 +40,7 @@ class NewsViewModel(private val repository: NewsRepository) : ViewModel() {
         searchNews.postValue(searchNewsResponseHandler(response))
     }
 
+    //Response handler function for fetching news
     private fun responseHandler(response: Response<News>): Resource<News> {
         if (response.isSuccessful) {
             response.body()?.let { results ->
@@ -47,6 +50,7 @@ class NewsViewModel(private val repository: NewsRepository) : ViewModel() {
         return Resource.Error(response.message())
     }
 
+    //Response handler function for fetching news based on search query
     private fun searchNewsResponseHandler(response: Response<News>): Resource<News> {
         if (response.isSuccessful) {
             response.body()?.let { results ->

@@ -3,17 +3,13 @@ package com.example.simplenewsapp.ui.fragments
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentPagerAdapter
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.simplenewsapp.R
-import com.example.simplenewsapp.data.models.Article
 import com.example.simplenewsapp.ui.NewsActivity
-import com.example.simplenewsapp.ui.adapters.NewsPageAdapter
 import com.example.simplenewsapp.ui.adapters.SavedNewsAdapter
 import com.example.simplenewsapp.viewmodels.NewsViewModel
-import kotlinx.android.synthetic.main.fragment_news.*
 import kotlinx.android.synthetic.main.fragment_saved_news.*
 
 /**

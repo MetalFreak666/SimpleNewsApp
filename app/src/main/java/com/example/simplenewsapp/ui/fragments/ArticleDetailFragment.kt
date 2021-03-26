@@ -13,6 +13,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.simplenewsapp.R
 import com.example.simplenewsapp.ui.NewsActivity
 import com.example.simplenewsapp.viewmodels.NewsViewModel
+import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_article_detail.*
 import timber.log.Timber
@@ -80,6 +81,9 @@ class ArticleDetailFragment : Fragment(R.layout.fragment_article_detail) {
             //FAB used to save article
             fab_save_article.setOnClickListener{
                 viewModel.saveArticle(article)
+
+                //Notification when article is saved
+                Snackbar.make(view, R.string.article_saved_successfully, Snackbar.LENGTH_SHORT).show()
             }
         }
     }
