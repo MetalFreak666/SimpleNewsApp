@@ -29,7 +29,6 @@ class NewsViewModel(private val repository: NewsRepository) : ViewModel() {
 
     //Used to fetch data(news)
     fun getNews(countryCode: String, pages: Int) = viewModelScope.launch {
-        Timber.i("GG $country")
         news.postValue(Resource.Loading())
         val response = repository.getNews(countryCode, pages)
         news.postValue(responseHandler(response))

@@ -19,7 +19,7 @@
 
     <!--Article detail fragment -->
     <color name="fab_web_blue">#40c4ff</color>
-    <color name="fab_favorite_red">#e53935</color>
+    <color name="fab_favorite_red">#FF9800</color>
 
 
 </resources>
