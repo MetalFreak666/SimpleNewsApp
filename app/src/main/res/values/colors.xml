@@ -11,6 +11,9 @@
     <color name="accentColor">#FFBB86FC</color>
     <color name="whiteBackgroundColor">#FFFFFF</color>
 
+    <!-- Bottom navigation menu -->
+    <color name="menu_background_color">#de1d00</color>
+
     <!-- Recycler news item -->
     <color name="source_color_orange">#FF9800</color>
 

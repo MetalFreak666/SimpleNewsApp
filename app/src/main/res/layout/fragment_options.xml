@@ -61,7 +61,7 @@
         android:id="@+id/save_options_fab"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:src="@drawable/fab_add_to_favorite"
+        android:src="@drawable/fab_check"
         android:enabled="false"
         app:fabSize="normal"
         app:backgroundTint="@color/source_color_orange"

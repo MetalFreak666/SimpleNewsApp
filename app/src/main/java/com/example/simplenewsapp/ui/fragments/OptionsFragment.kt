@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import com.example.simplenewsapp.R
 import com.example.simplenewsapp.ui.NewsActivity
 import com.example.simplenewsapp.viewmodels.NewsViewModel
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_options.*
 
 /**
@@ -44,6 +45,9 @@ class OptionsFragment : Fragment(R.layout.fragment_options) {
 
         save_options_fab.setOnClickListener {
             viewModel.getNews(countryCode, 1)
+
+            //Notification when news source has been changed
+            Snackbar.make(view, R.string.news_source_country, Snackbar.LENGTH_SHORT).show()
         }
     }
 }

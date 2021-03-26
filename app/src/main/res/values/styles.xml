@@ -10,6 +10,13 @@
         <item name="android:textSize">16sp</item>
     </style>
 
+    <!-- Navigation menu style -->
+    <style name="BottomNavigationMenuStyle" parent="AppTheme">
+        <item name="backgroundTint">@color/menu_background_color</item>
+        <item name="itemIconTint">@drawable/navigation_menu_tab_colors</item>
+        <item name="itemTextColor">@drawable/navigation_menu_tab_colors</item>
+    </style>
+
     <!-- Recycler item style -->
     <style name="ArticlePublishedDateStyleText" parent="AppTheme">
         <item name="android:textSize">12sp</item>

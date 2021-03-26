@@ -27,5 +27,6 @@
 
     <!-- Notifications -->
     <string name="article_saved_successfully">Article saved successfully</string>
+    <string name="news_source_country">Articles news country source has been successfully changed</string>
 
 </resources>
