@@ -9,6 +9,7 @@ import com.example.simplenewsapp.repository.NewsRepository
 import com.example.simplenewsapp.utils.Resource
 import kotlinx.coroutines.launch
 import retrofit2.Response
+import timber.log.Timber
 
 /**
  * NewsViewModel class created based on:
@@ -27,7 +28,8 @@ class NewsViewModel(private val repository: NewsRepository) : ViewModel() {
     }
 
     //Used to fetch data(news)
-    private fun getNews(countryCode: String, pages: Int) = viewModelScope.launch {
+    fun getNews(countryCode: String, pages: Int) = viewModelScope.launch {
+        Timber.i("GG $country")
         news.postValue(Resource.Loading())
         val response = repository.getNews(countryCode, pages)
         news.postValue(responseHandler(response))
