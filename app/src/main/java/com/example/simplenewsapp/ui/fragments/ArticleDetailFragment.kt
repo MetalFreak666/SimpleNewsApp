@@ -8,10 +8,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.simplenewsapp.R
 import com.example.simplenewsapp.ui.NewsActivity
 import com.example.simplenewsapp.viewmodels.NewsViewModel
+import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_article_detail.*
 import timber.log.Timber
@@ -28,6 +30,7 @@ class ArticleDetailFragment : Fragment(R.layout.fragment_article_detail) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = (activity as NewsActivity).newsViewModel
         val article = args.article
+        val savedArticle = args.savedArticle
 
         val source: TextView = view.findViewById(R.id.article_detail_source)
         val publishedDate: TextView = view.findViewById(R.id.article_detail_published_date)
@@ -48,6 +51,7 @@ class ArticleDetailFragment : Fragment(R.layout.fragment_article_detail) {
         title.text = article.title
         description.text = article.description
 
+        //FAB used to open URL in WebView
         fab_web.setOnClickListener {
             web.apply {
                 webViewClient = WebViewClient()
@@ -61,6 +65,26 @@ class ArticleDetailFragment : Fragment(R.layout.fragment_article_detail) {
             description.isVisible = false
             image.isVisible = false
             fab_web.isVisible = false
+        }
+
+        //If saved article display delete FAB
+        if (savedArticle) {
+            fab_save_article.isVisible = false
+            fab_delete_article.isVisible = true
+
+            //Deleting article from DB
+            fab_delete_article.setOnClickListener {
+                viewModel.deleteArticle(article)
+                findNavController().navigate(R.id.action_articleDetailFragment_to_savedNewsFragment2)
+            }
+        } else {
+            //FAB used to save article
+            fab_save_article.setOnClickListener{
+                viewModel.saveArticle(article)
+
+                //Notification when article is saved
+                Snackbar.make(view, R.string.article_saved_successfully, Snackbar.LENGTH_SHORT).show()
+            }
         }
     }
 }

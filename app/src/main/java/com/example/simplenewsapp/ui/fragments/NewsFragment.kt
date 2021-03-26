@@ -19,7 +19,7 @@ import timber.log.Timber
 /**
  * Fragment used to showing breaking news from NewsAPI
  */
-class NewsFragment : Fragment(R.layout.fragment_news) {
+class   NewsFragment : Fragment(R.layout.fragment_news) {
     lateinit var viewModel: NewsViewModel
     lateinit var newsPageAdapter: NewsPageAdapter
 

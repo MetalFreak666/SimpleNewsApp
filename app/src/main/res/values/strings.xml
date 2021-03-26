@@ -4,6 +4,7 @@
 
     <!-- Navigation menu -->
     <string name="nav_menu_news_title">News</string>
+    <string name="nav_menu_saved_news_title">Saved News</string>
     <string name="nav_menu_search_news_title">Search News</string>
 
     <!-- Recycler item news -->
@@ -19,5 +20,8 @@
     <string name="article_detail_title">Title</string>
     <string name="article_detail_description">Description</string>
     <string name="article_detail_content_description">Article Image</string>
+
+    <!-- Notifications -->
+    <string name="article_saved_successfully">Article saved successfully</string>
 
 </resources>

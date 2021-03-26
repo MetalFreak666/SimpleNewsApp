@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp">
+    android:padding="10dp">
     
     <WebView
         android:id="@+id/article_detail_web_view"
@@ -73,6 +73,17 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:src="@drawable/fab_add_to_favorite"
+        app:fabSize="normal"
+        app:backgroundTint="@color/fab_favorite_red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_delete_article"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:src="@drawable/fab_delete_article"
+        android:visibility="invisible"
         app:fabSize="normal"
         app:backgroundTint="@color/fab_favorite_red"
         app:layout_constraintBottom_toBottomOf="parent"
