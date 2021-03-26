@@ -19,10 +19,10 @@ abstract class ArticleDB : RoomDatabase() {
     companion object {
         @Volatile
         private var instance: ArticleDB? = null
-        private var lock = Any()
+        private var LOCK = Any()
 
         //Ensuring that there is only one instance of the database at time
-        operator fun invoke(context: Context) = instance ?: synchronized(lock) {
+        operator fun invoke(context: Context) = instance ?: synchronized(LOCK) {
             instance ?: createDatabase(context).also { instance = it }
         }
 
