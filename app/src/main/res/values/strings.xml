@@ -6,6 +6,7 @@
     <string name="nav_menu_news_title">News</string>
     <string name="nav_menu_saved_news_title">Saved News</string>
     <string name="nav_menu_search_news_title">Search News</string>
+    <string name="nav_menu_options">Options</string>
 
     <!-- Recycler item news -->
     <string name="recycler_item_published_date">Published data</string>
